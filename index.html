@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100);
+
+body{
+  overflow-Y: scroll;
+}
+
+.profile-card, .profile-card *{
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile-card{
+  position: relative;
+  width: 400px;
+  height: auto;
+  background: #F0F0F0;
+  border-radius: 5px;
+  margin: 25px auto;
+}
+
+.profile-card header{
+  position: relative;
+  width: 100%;
+  height: 260px;
+  margin: 0;
+  padding: 25px;
+  background-color: #716c5f;
+  background-blend-mode: darken;
+  background-position: 50% 0%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 600ms;
+  font-size: 0;
+}
+
+/* .profile-card:hover header{
+  background-image: url(https://scontent-fra3-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11174970_10204130403759697_3987981136837199734_n.jpg?oh=c324eee77a6c0a10052b11ee771aa2c4&oe=55E867E1);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #716c5f;
+  background-blend-mode: darken;
+} */
+
+.profile-card header a{
+  width: 100px;
+  height: 100px;
+  margin: 25px auto;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 400ms;
+  z-index: 5;
+}
+
+.profile-card header a img{
+  position: relative;
+  width: 100%;
+}
+
+.profile-card:hover header a{
+  transform: translateY(10%) scale(1,1);
+}
+
+
+.profile-card header a:before{
+  position: absolute;
+  content: '';
+  top: 165px;
+  left: 150px;
+  width: 100px;
+  height: 6px;
+  background: #080903;
+  border-radius: 50%;
+  z-index: 5;
+  transition: all 400ms;
+}
+
+.profile-card header h1{
+  position: relative;
+  width: auto;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: #F0F0F0;
+  transition: all 250ms;
+  vertical-align: top;
+  z-index: 1;
+}
+
+.profile-card header h1:before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content:'';
+  width: 100%;
+  height: 100%;
+  background: #716c5f;
+  transition: all 250ms;
+  z-index: -1;
+  transform: scale(0,1);
+}
+/* 
+.profile-card:hover header h1{
+  margin: 25px 50px;
+  font-size: 16px;
+  color: #f0f0f0;
+  transform: translateY(53px);
+  z-index: 2;
+} */
+/* .profile-card:hover header h1:before{
+  transform: scale(1,1);
+} */
+
+.profile-card header h2{
+  position: relative;
+  width: auto;
+  padding: 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  color: #F0F0F0;
+  transition: all 250ms;
+  margin: 0;
+  z-index: 1;
+}
+
+.profile-card header h2:before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content:'';
+  width: 100%;
+  height: 100%;
+  background: #716c5f;
+  transition: all 250ms 0.05s;
+  z-index: -1;
+  transform: scale(0,1);
+}
+
+.profile-card header h2:after{
+  position: absolute;
+  top: 0px;
+  left: 75px;
+  content:'';
+  width: 100px;
+  border-top: 1px solid #f0f0f0;
+  transition: all 250ms 0.05s;
+  z-index: 1;
+  transform: scale(0,1);
+}
+
+/* .profile-card:hover header h2{
+  margin: 0px 50px;
+  padding: 2px;
+  font-size: 14px;
+  color: #F0F0F0;
+  transform: translateY(28px);
+} */
+
+/* .profile-card:hover header h2:before{
+  transform: scale(1,1);
+}
+
+.profile-card:hover header h2:after{
+  transform: scale(1,1);
+} */
+
+.profile-card .profile-bio{
+  position: relative;
+  width: auto;
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 250ms;
+}
+
+/* .profile-card:hover .profile-bio{
+  height: 250px;
+} */
+
+.profile-card .profile-bio p{
+  position: relative;
+  width: auto;
+  margin: 0;
+  text-indent: 1.5em;
+  text-align: justify;
+  color: #1B2024;
+  padding: 35px 25px 25px 25px;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* .profile-card:hover .profile-bio p{
+  transition: all 600ms;
+  transform: translateY(0%);
+  opacity: 1;
+} */
+
+.profile-card .profile-social-links{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border-top: 1px solid #FFFFFF;
+  font-size: 0;
+}
+
+.profile-card .profile-social-links li{
+  position: relative;
+  width: 33.333%;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  transition: all 250ms;
+}
+
+.profile-card .profile-social-links li:hover{
+  transform: prespective(800px) rotateX(5deg);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.profile-card .profile-social-links li:nth-child(1){
+  border-bottom-left-radius: 5px;
+}
+
+.profile-card .profile-social-links li:nth-child(2){
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+}
+
+.profile-card .profile-social-links li:nth-child(3){
+  border-bottom-right-radius: 5px;
+}
+
+.profile-card .profile-social-links li a{
+  position: relative;
+  display: block;
+  padding: 25px 50px;
+}
+
+.profile-card .profile-social-links li a:before{
+  position: absolute;
+  content: '';
+  bottom: 10px;
+  left: 50px;
+  width: 25%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.profile-card .profile-social-links li a img{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+
+.profile-card .profile-social-links li a:hover:before,
+.profile-card .profile-social-links li a:hover img{
+
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: rubberBandY;
+  animation-name: rubberBandY;
+} */
+
+@-webkit-keyframes rubberBandY {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+    transform: scale3d(0.85, 1.15, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rubberBandY {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+    transform: scale3d(0.85, 1.15, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+} 
+
+    </style>
+</head>
+<body>
+
+    <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
+
+<aside class="profile-card">
+  
+        <header>
+          
+          <!-- here’s the avatar -->
+          <a href="https://www.instagram.com/rifky_gg/">
+            <img src="https://scontent-sin2-1.cdninstagram.com/v/t51.2885-19/s150x150/41451928_949584135244777_556378107997585408_n.jpg?_nc_ht=scontent-sin2-1.cdninstagram.com&_nc_cat=101&_nc_ohc=-APIsp3_SFEAX8DjZxV&oh=a7ec77d642ac82517083641453a4e560&oe=5ED8A778">
+          </a>
+      
+          <!-- the username -->
+          <h1>Muhammad Rifky Fadillah</h1>
+          
+          <!-- and role or location -->
+          <h2>Nope</h2>
+          
+        </header>
+        
+        <!-- bit of a bio; who are you? -->
+        <div class="profile-bio">
+          
+
+          
+        </div>
+        
+        <!-- some social links to show off -->
+        <ul class="profile-social-links">
+          
+          <!-- twitter - el clásico  -->
+          <li>
+            <a href="https://www.linkedin.com/in/muhammad-r-553076a8/">
+              <img src="https://elionetwork.com/wp-content/uploads/2019/01/linkedin-color-icon-linkedin-linked-in-png-and-vector-linkedin-png-640_640-300x300.png">
+            </a>
+            <div style="font-size:14px !important;margin-bottom: 5px;color:#716c5f;margin-top: -5px;">Linkedin</div>
+          </li>
+          
+          <!-- envato – use this one to link to your marketplace profile -->
+          <li>
+            <a href="https://www.facebook.com/MuhammadRifkyFadillah99">
+              <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png">
+            </a>
+            <div style="font-size:14px !important;margin-bottom: 5px;color:#716c5f;margin-top: -5px;">Facebook</div>
+          </li>
+          
+          <!-- codepen - your codepen profile-->
+          <li >
+            <a href="https://codepen.io/tutsplus">
+              <img src="https://image.flaticon.com/icons/svg/25/25231.svg">
+            </a>
+            <div style="font-size:14px !important;margin-bottom: 5px;color:#716c5f;margin-top: -5px;">Github</div>
+          </li>
+          
+          <!-- add or remove social profiles as you see fit -->
+          
+        </ul>
+        
+      </aside>
+      <!-- that’s all folks! -->
+      
+    
+</body>
+</html>
